@@ -49,7 +49,15 @@ describe('NodeJsInstance', () => {
     });
   });
 
-  test('unsupported machine image', () => {
+  test.each([
+    new ec2.WindowsImage(ec2.WindowsVersion.WINDOWS_SERVER_1709_ENGLISH_CORE_BASE),
+    new ec2.GenericWindowsImage({
+      'us-east-1': 'ami-12345678',
+    }),
+    ec2.MachineImage.genericLinux({
+      'us-east-1': 'ami-12345678',
+    }),
+  ])('unsupported machine image: %s', (machineImage) => {
     const app = new App();
     const stack = new Stack(app, 'TestStack');
 
@@ -59,7 +67,7 @@ describe('NodeJsInstance', () => {
       new NodeJsInstance(stack, 'Instance', {
         vpc,
         instanceType: ec2.InstanceType.of(ec2.InstanceClass.T3, ec2.InstanceSize.NANO),
-        machineImage: new ec2.WindowsImage(ec2.WindowsVersion.WINDOWS_SERVER_1709_ENGLISH_CORE_BASE),
+        machineImage,
       });
     }).toThrow('Only AMAZON_LINUX, AMAZON_LINUX_2, AMAZON_LINUX_2022, and AMAZON_LINUX_2023 are supported.');
   });
