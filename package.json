@@ -1,5 +1,6 @@
 {
   "name": "cdk-node-ec2-instance",
+  "description": "CDK construct library for creating an EC2 instance with Node.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/badmintoncryer/cdk-node-ec2-instance.git"
@@ -34,11 +35,14 @@
     "organization": false
   },
   "devDependencies": {
+    "@aws-cdk/integ-runner": "2.143.0-alpha.0",
+    "@aws-cdk/integ-tests-alpha": "2.143.0-alpha.0",
+    "@open-constructs/aws-cdk": "^0.0.0",
     "@types/jest": "^29.5.12",
     "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^6",
     "@typescript-eslint/parser": "^6",
-    "aws-cdk-lib": "2.141.0",
+    "aws-cdk-lib": "2.143.0",
     "constructs": "10.0.5",
     "eslint": "^8",
     "eslint-import-resolver-typescript": "^3.6.1",
@@ -57,11 +61,15 @@
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.141.0",
+    "aws-cdk-lib": "^2.143.0",
     "constructs": "^10.0.5"
   },
   "keywords": [
-    "cdk"
+    "aws",
+    "aws-cdk",
+    "cdk",
+    "ec2",
+    "nodejs"
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
