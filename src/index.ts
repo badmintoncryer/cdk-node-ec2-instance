@@ -2,7 +2,7 @@ import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
 
 export interface NodeJsInstanceProps extends ec2.InstanceProps {
-  nodeJsVersion?: string;
+  readonly nodeJsVersion?: string;
 };
 
 const supportedMachineImages = [
@@ -12,7 +12,7 @@ const supportedMachineImages = [
 export class NodeJsInstance extends ec2.Instance {
   constructor(scope: Construct, id: string, props: NodeJsInstanceProps) {
     if (!supportedMachineImages.some((image) => props.machineImage instanceof image)) {
-      throw new Error(`Unsupported machine image. Supported: ${supportedMachineImages.join(', ')}`);
+      throw new Error('Only AMAZON_LINUX, AMAZON_LINUX_2, AMAZON_LINUX_2022, and AMAZON_LINUX_2023 are supported.');
     }
 
     const nodejsUserData = props.userData ?? ec2.UserData.forLinux();
