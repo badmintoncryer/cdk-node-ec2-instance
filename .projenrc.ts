@@ -17,6 +17,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '@aws-cdk/integ-tests-alpha@2.143.0-alpha.0',
     '@open-constructs/aws-cdk',
   ],
+  releaseToNpm: true,
   packageName: 'cdk-node-ec2-instance',
   publishToPypi: {
     distName: 'node-ec2-instance',
