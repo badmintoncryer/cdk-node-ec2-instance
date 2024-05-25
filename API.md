@@ -4,6 +4,8 @@
 
 ### NodeJsInstance <a name="NodeJsInstance" id="cdk-node-ec2-instance.NodeJsInstance"></a>
 
+Create an EC2 instance with Node.js installed.
+
 #### Initializers <a name="Initializers" id="cdk-node-ec2-instance.NodeJsInstance.Initializer"></a>
 
 ```typescript
@@ -404,6 +406,8 @@ UserData for the instance.
 
 ### NodeJsInstanceProps <a name="NodeJsInstanceProps" id="cdk-node-ec2-instance.NodeJsInstanceProps"></a>
 
+Properties for NodeJsInstance.
+
 #### Initializer <a name="Initializer" id="cdk-node-ec2-instance.NodeJsInstanceProps.Initializer"></a>
 
 ```typescript
@@ -444,7 +448,7 @@ const nodeJsInstanceProps: NodeJsInstanceProps = { ... }
 | <code><a href="#cdk-node-ec2-instance.NodeJsInstanceProps.property.userData">userData</a></code> | <code>aws-cdk-lib.aws_ec2.UserData</code> | Specific UserData to use. |
 | <code><a href="#cdk-node-ec2-instance.NodeJsInstanceProps.property.userDataCausesReplacement">userDataCausesReplacement</a></code> | <code>boolean</code> | Changes to the UserData force replacement. |
 | <code><a href="#cdk-node-ec2-instance.NodeJsInstanceProps.property.vpcSubnets">vpcSubnets</a></code> | <code>aws-cdk-lib.aws_ec2.SubnetSelection</code> | Where to place the instance within the VPC. |
-| <code><a href="#cdk-node-ec2-instance.NodeJsInstanceProps.property.nodeJsVersion">nodeJsVersion</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-node-ec2-instance.NodeJsInstanceProps.property.nodeJsVersion">nodeJsVersion</a></code> | <code>string</code> | The version of Node.js to install. nvm will be used to install the specified version. |
 
 ---
 
@@ -883,8 +887,20 @@ public readonly nodeJsVersion: string;
 ```
 
 - *Type:* string
+- *Default:* latest LTS version
+
+The version of Node.js to install. nvm will be used to install the specified version.
+
+> [https://github.com/nvm-sh/nvm?tab=readme-ov-file#usage](https://github.com/nvm-sh/nvm?tab=readme-ov-file#usage)
 
 ---
+
+*Example*
+
+```typescript
+'node' - latest version
+```
+
 
 
 

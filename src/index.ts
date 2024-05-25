@@ -1,7 +1,21 @@
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
 
+/**
+ * Properties for NodeJsInstance
+ */
 export interface NodeJsInstanceProps extends ec2.InstanceProps {
+  /**
+   * The version of Node.js to install.
+   * nvm will be used to install the specified version.
+   *
+   * @example '20.13.1'
+   * @example 'node' - latest version
+   *
+   * @see https://github.com/nvm-sh/nvm?tab=readme-ov-file#usage
+   *
+   * @default - latest LTS version
+   */
   readonly nodeJsVersion?: string;
 };
 
@@ -9,6 +23,9 @@ const supportedMachineImages = [
   ec2.AmazonLinuxImage,
 ];
 
+/**
+ * Create an EC2 instance with Node.js installed
+ */
 export class NodeJsInstance extends ec2.Instance {
   constructor(scope: Construct, id: string, props: NodeJsInstanceProps) {
     if (!supportedMachineImages.some((image) => props.machineImage instanceof image)) {
