@@ -4,6 +4,8 @@ This is a CDK Construct for creating an EC2 instance with Node.js installed.
 
 You can use Node.js as soon as the EC2 instance starts.
 
+[![View on Construct Hub](https://constructs.dev/badge?package=cdk-node-ec2-instance)](https://constructs.dev/packages/cdk-node-ec2-instance)
+
 [![Open in Visual Studio Code](https://img.shields.io/static/v1?logo=visualstudiocode&label=&message=Open%20in%20Visual%20Studio%20Code&labelColor=2c2c32&color=007acc&logoColor=007acc)](https://open.vscode.dev/badmintoncryer/cdk-node-ec2-instance)
 [![npm version](https://badge.fury.io/js/cdk-node-ec2-instance.svg)](https://badge.fury.io/js/cdk-node-ec2-instance)
 [![Build Status](https://github.com/badmintoncryer/cdk-node-ec2-instance/actions/workflows/build.yml/badge.svg)](https://github.com/badmintoncryer/cdk-node-ec2-instance/actions/workflows/build.yml)
