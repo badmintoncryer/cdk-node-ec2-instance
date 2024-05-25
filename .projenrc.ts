@@ -19,6 +19,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '@open-constructs/aws-cdk',
   ],
   // packageName: undefined,  /* The "name" in package.json. */
+  publishToPypi: {
+    distName: 'node-ec2-instance',
+    module: 'node_ec2_instance',
+  },
 });
 project.projectBuild.testTask.exec(
   'yarn tsc -p tsconfig.dev.json && yarn integ-runner',
