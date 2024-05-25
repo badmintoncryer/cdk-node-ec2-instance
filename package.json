@@ -1,6 +1,6 @@
 {
   "name": "cdk-node-ec2-instance",
-  "description": "CDK construct library for creating an EC2 instance with Node.js",
+  "description": "CDK construct library for creating an EC2 instance with Node.js installed",
   "repository": {
     "type": "git",
     "url": "https://github.com/badmintoncryer/cdk-node-ec2-instance.git"
