@@ -8,7 +8,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: 'cdk-node-ec2-instance',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/badmintoncryer/cdk-node-ec2-instance.git',
-  description: 'CDK construct library for creating an EC2 instance with Node.js',
+  description: 'CDK construct library for creating an EC2 instance with Node.js installed',
   keywords: ['aws', 'cdk', 'ec2', 'nodejs', 'aws-cdk'],
   gitignore: ['*.js', '*.d.ts', '!test/.*.snapshot/**/*', '.tmp'],
   // deps: [],                /* Runtime dependencies of this module. */

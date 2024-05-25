@@ -1,6 +1,6 @@
 # CDK Node.js EC2 Instance Construct
 
-This is a CDK Construct for creating an EC2 instance with a Node.js.
+This is a CDK Construct for creating an EC2 instance with Node.js installed.
 
 You can use Node.js as soon as the EC2 instance starts.
 
