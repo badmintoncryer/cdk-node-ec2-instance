@@ -12,13 +12,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ['aws', 'cdk', 'ec2', 'nodejs', 'aws-cdk'],
   gitignore: ['*.js', '*.d.ts', '!test/.*.snapshot/**/*', '.tmp'],
   // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   devDeps: [
     '@aws-cdk/integ-runner@2.143.0-alpha.0',
     '@aws-cdk/integ-tests-alpha@2.143.0-alpha.0',
     '@open-constructs/aws-cdk',
   ],
-  // packageName: undefined,  /* The "name" in package.json. */
+  packageName: 'cdk-node-ec2-instance',
   publishToPypi: {
     distName: 'node-ec2-instance',
     module: 'node_ec2_instance',
