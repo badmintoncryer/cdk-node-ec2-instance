@@ -39,7 +39,7 @@ export class NodeJsInstance extends ec2.Instance {
       'source ~/.bashrc',
       'export NVM_DIR="$HOME/.nvm"',
       '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"',
-      'nvm install --lts',
+      `nvm install ${props.nodeJsVersion ?? '--lts'}`,
       `cat <<EOF >> /home/ec2-user/.bashrc
 export NVM_DIR="/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
