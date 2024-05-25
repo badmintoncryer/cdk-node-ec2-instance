@@ -47,3 +47,37 @@ $ ssh ec2-user@<public-ip>
 $ node --version
 v20.13.1
 ```
+
+## user data
+
+Installation of Node.js is done by user data script. You can see the script in the `src/index.ts` file.
+
+```typescript
+nodejsUserData.addCommands(
+  'touch ~/.bashrc',
+  'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash',
+  'source ~/.bashrc',
+  'export NVM_DIR="$HOME/.nvm"',
+  '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"',
+  `nvm install ${props.nodeJsVersion ?? '--lts'}`,
+  // Note that the above will install nvm, node and npm for the root user.
+  // It will not add the correct ENV VAR in ec2-user's environment.
+  `cat <<EOF >> /home/ec2-user/.bashrc
+export NVM_DIR="/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+EOF`);
+```
+
+Ofcourse, you can customize the additional user data script by calling `instance.userData.addCommands()` method.
+
+```typescript
+declare const instance: NodeEc2Instance;
+
+// install VScode for linux
+instance.userData.addCommands(
+  'sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc',
+  'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null',
+  'sudo dnf check-update',
+  'sudo dnf install -y code',
+);
+```
